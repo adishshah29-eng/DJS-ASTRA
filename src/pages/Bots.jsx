@@ -15,14 +15,14 @@ export default function Bots() {
     return (
         <>
             {/* 1 — Page Hero */}
-            <section style={{ height: '50vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-                <h1 className="font-display reveal" style={{ fontSize: '96px', marginBottom: '16px' }}>{bots.heroTitle}</h1>
+            <section style={{ padding: '120px 0 60px 0', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
+                <h1 className="font-display reveal" style={{ fontSize: 'clamp(48px, 8vw, 96px)', marginBottom: '16px' }}>{bots.heroTitle}</h1>
                 <p className="text-body reveal" style={{ color: 'var(--text-muted)' }}>{bots.heroSubtitle}</p>
             </section>
 
             {/* 2 — Bot Grid */}
             <section className="container">
-                <div className="reveal" style={{ display: 'flex', gap: '16px', marginBottom: '48px', justifyContent: 'center' }}>
+                <div className="reveal custom-scrollbar" style={{ display: 'flex', gap: '8px', marginBottom: '48px', justifyContent: 'center', flexWrap: 'wrap' }}>
                     {['ALL', '15 KG ROBO WARS', '8 KG ROBO WARS', 'BEATLE WEIGHT', 'SUMO & SORCER'].map(f => (
                         <button key={f} onClick={() => setFilter(f)} style={{
                             background: 'transparent',

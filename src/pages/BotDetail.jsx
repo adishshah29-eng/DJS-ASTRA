@@ -43,7 +43,7 @@ export default function BotDetail() {
                 </div>
 
                 {/* Right Column: Specifications & History */}
-                <div className="reveal" style={{ flex: '1 1 50vw', padding: '64px 40px', background: 'var(--bg-void)' }}>
+                <div className="reveal bot-detail-content" style={{ flex: '1 1 50vw', background: 'var(--bg-void)' }}>
 
                     {/* Header Info */}
                     <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '16px' }}>

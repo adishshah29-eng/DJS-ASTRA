@@ -40,8 +40,8 @@ export default function Contact() {
 
     return (
         <>
-            <section style={{ height: '50vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-                <h1 className="font-display reveal" style={{ fontSize: '96px', marginBottom: '16px' }}>{contact.heroTitle}</h1>
+            <section style={{ padding: '120px 0 60px 0', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
+                <h1 className="font-display reveal" style={{ fontSize: 'clamp(48px, 8vw, 96px)', marginBottom: '16px' }}>{contact.heroTitle}</h1>
             </section>
 
             <section className="container reveal" style={{ display: 'flex', flexWrap: 'wrap', gap: '80px', marginBottom: '120px' }}>

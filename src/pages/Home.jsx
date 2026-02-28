@@ -102,7 +102,7 @@ export default function Home() {
                     </p>
                 </div>
                 <div style={{ flex: '1 1 500px' }}>
-                    <div style={{ width: '60%', aspectRatio: '1', border: '1px solid var(--border-subtle)', background: 'var(--bg-raised)', position: 'relative', display: 'flex', alignItems: '', justifyContent: 'center', overflow: 'hidden' }}>
+                    <div style={{ width: '60%', aspectRatio: '1', border: '1px solid var(--border-subtle)', background: 'var(--bg-raised)', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
                         <img src="/images/Founder.png" alt="Founder" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     </div>
                 </div>

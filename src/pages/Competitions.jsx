@@ -16,14 +16,10 @@ export default function Competitions() {
             <section className="container reveal" style={{ marginBottom: '120px', position: 'relative' }}>
                 <div style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)', top: 0, bottom: 0, width: '1px', background: 'var(--accent-gold)', opacity: 0.3 }} />
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '64px', position: 'relative', zIndex: 1 }}>
+                <div className="timeline-container">
                     {competitions.timeline.map((item, i) => (
-                        <div key={i} style={{
-                            display: 'flex',
-                            justifyContent: i % 2 === 0 ? 'flex-start' : 'flex-end',
-                            textAlign: i % 2 === 0 ? 'right' : 'left',
-                        }} className="reveal">
-                            <div style={{ width: '45%', padding: '24px', background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)' }}>
+                        <div key={i} className={`reveal timeline-item ${i % 2 === 0 ? 'even' : 'odd'}`}>
+                            <div className="timeline-card">
                                 <div className="text-mono" style={{ color: 'var(--accent-gold)', marginBottom: '8px' }}>{item.year}</div>
                                 <h3 className="font-display" style={{ fontSize: '28px', marginBottom: '8px', color: item.isWin ? 'var(--accent-gold)' : 'var(--text-primary)' }}>{item.event}</h3>
                                 <div className="text-body" style={{ color: 'var(--text-muted)', marginBottom: '16px' }}>{item.location}</div>

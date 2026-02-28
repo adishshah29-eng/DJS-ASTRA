@@ -8,13 +8,13 @@ export default function Team() {
     return (
         <>
             {/* 1 — Page Hero */}
-            <section style={{ height: '50vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-                <h1 className="font-display reveal" style={{ fontSize: '96px', marginBottom: '16px' }}>{team.heroTitle}</h1>
+            <section style={{ padding: '120px 0 60px 0', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
+                <h1 className="font-display reveal" style={{ fontSize: 'clamp(48px, 8vw, 96px)', marginBottom: '16px' }}>{team.heroTitle}</h1>
             </section>
 
             {/* 3 — Leadership Row */}
             <section className="container reveal" style={{ marginBottom: '64px' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '32px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '32px' }}>
                     {team.leadership.map((member, i) => (
                         <div key={i} className="card" style={{ padding: '0', border: '1px solid var(--border-subtle)' }}>
                             <div style={{ aspectRatio: '1', background: `var(--bg-raised) url(${member.image}) center/cover`, filter: 'grayscale(100%)', transition: 'filter 300ms ease' }}
