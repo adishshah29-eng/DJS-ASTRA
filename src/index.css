@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=DM+Sans:wght@300;400&family=JetBrains+Mono:wght@400&display=swap');
+
+:root {
+  --bg-void: #0A0A0A;
+  --bg-surface: #111111;
+  --bg-raised: #1C1C1C;
+  --text-primary: #E8E0D4;
+  --text-muted: rgba(232, 224, 212, 0.5);
+  --accent-gold: #C8A96E;
+  --accent-red: #FF3B30;
+  --border-subtle: #3A3A3A;
+  --border-active: #C8A96E;
+  --white: #FFFFFF;
+
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --text-hero-base: clamp(72px, 9vw, 120px);
+  --text-h2-base: clamp(40px, 5vw, 64px);
+
+  --section-padding-y-desktop: 140px;
+  --section-padding-y-mobile: 80px;
+  --container-max: 1280px;
+  --nav-height: 72px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-void);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Noise Texture */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 300;
+}
+
+.text-hero {
+  font-size: var(--text-hero-base);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.text-h2 {
+  font-size: var(--text-h2-base);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.text-h3 {
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.text-body {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+.text-mono {
+  font-family: var(--font-mono);
+}
+
+.text-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+/* Container */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 24px;
+  }
+}
+
+/* Sections */
+section {
+  padding: var(--section-padding-y-desktop) 0;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: var(--section-padding-y-mobile) 0;
+  }
+}
+
+.divider {
+  border-top: 1px solid var(--border-subtle);
+  width: 100%;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  padding: 14px 40px;
+  border-radius: 0;
+  font-family: var(--font-body);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  transition: all 400ms ease;
+  text-decoration: none;
+  border: 1px solid var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+.btn-primary:hover {
+  background: var(--accent-gold);
+  color: var(--bg-void);
+}
+
+.btn-ghost {
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+}
+
+.btn-ghost:hover {
+  background: var(--text-primary);
+  color: var(--bg-void);
+}
+
+/* Reveal Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 800ms ease-out, transform 800ms ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Cards */
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0;
+  padding: 32px;
+  transition: border-color 400ms ease, box-shadow 400ms ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  border-color: var(--accent-gold);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+}
+
+.card-img-container {
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 600ms ease;
+}
+
+.card:hover .card-img {
+  transform: scale(1.03);
+}
+
+.badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 4px 8px;
+  border: 1px solid var(--accent-red);
+  color: var(--accent-red);
+  background: transparent;
+  text-transform: uppercase;
+}
