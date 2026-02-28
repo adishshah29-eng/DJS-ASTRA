@@ -19,52 +19,65 @@ export default function Home() {
     return (
         <>
             {/* 2 — Hero */}
-            <section style={{ height: 'calc(100vh - var(--nav-height))', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', position: 'relative' }}>
-                <div style={{
-                    fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--accent-gold)',
-                    letterSpacing: '0.4em', marginBottom: '24px', opacity: heroTextVisible ? 1 : 0,
-                    transition: 'opacity 1s ease 0.2s'
-                }}>
-                    {hero.preTitle}
+            <section style={{ height: 'calc(100vh - var(--nav-height))', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+
+                {/* Background Hero Image */}
+                <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+                    <div className="reveal visible" style={{ position: 'absolute', inset: 0, background: `url(${hero.featuredBot.image}) center/cover no-repeat`, opacity: 0.5, mixBlendMode: 'luminosity', transition: 'all 2s ease-out' }} />
+                    {/* Radial and Linear gradients to cleanly blend the edges into pure void black */}
+                    <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, transparent 0%, var(--bg-void) 100%)' }} />
+                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, var(--bg-void) 0%, transparent 40%)' }} />
+                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, var(--bg-void) 0%, transparent 20%)' }} />
                 </div>
 
-                <h1 className="text-hero" style={{ marginBottom: '16px', display: 'flex', gap: '2vw', flexWrap: 'wrap', justifyContent: 'center' }}>
-                    {headlineTokens.map((word, i) => (
-                        <span key={i} style={{
-                            display: 'inline-block',
-                            opacity: heroTextVisible ? 1 : 0,
-                            transform: heroTextVisible ? 'translateY(0)' : 'translateY(40px)',
-                            transition: `all 800ms cubic-bezier(0.2, 0.8, 0.2, 1) ${0.1 * i + 0.4}s`
-                        }}>
-                            {word}
-                        </span>
-                    ))}
-                </h1>
+                {/* Wrap all content in relative z-10 so it sits above the image */}
+                <div style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <div style={{
+                        fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--accent-gold)',
+                        letterSpacing: '0.4em', marginBottom: '24px', opacity: heroTextVisible ? 1 : 0,
+                        transition: 'opacity 1s ease 0.2s'
+                    }}>
+                        {hero.preTitle}
+                    </div>
 
-                <p className="text-body reveal" style={{
-                    fontSize: '16px', opacity: 0.6, marginBottom: '48px', maxWidth: '600px'
-                }}>
-                    {hero.subHeadline}
-                </p>
+                    <h1 className="text-hero" style={{ marginBottom: '16px', display: 'flex', gap: '2vw', flexWrap: 'wrap', justifyContent: 'center' }}>
+                        {headlineTokens.map((word, i) => (
+                            <span key={i} style={{
+                                display: 'inline-block',
+                                opacity: heroTextVisible ? 1 : 0,
+                                transform: heroTextVisible ? 'translateY(0)' : 'translateY(40px)',
+                                transition: `all 800ms cubic-bezier(0.2, 0.8, 0.2, 1) ${0.1 * i + 0.4}s`
+                            }}>
+                                {word}
+                            </span>
+                        ))}
+                    </h1>
 
-                <div className="reveal" style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', justifyContent: 'center' }}>
-                    <Link to="/bots" className="btn-primary">MEET OUR BOTS</Link>
-                    <Link to="/contact" className="btn-ghost">JOIN THE TEAM</Link>
-                </div>
+                    <p className="text-body reveal" style={{
+                        fontSize: '16px', opacity: 0.6, marginBottom: '48px', maxWidth: '600px'
+                    }}>
+                        {hero.subHeadline}
+                    </p>
 
-                <div className="text-label" style={{
-                    position: 'absolute', bottom: '40px', left: '50%', transform: 'translateX(-50%)',
-                    animation: 'bounce 2s infinite'
-                }}>
-                    SCROLL ↓
-                </div>
-                <style>{`
+                    <div className="reveal" style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', justifyContent: 'center' }}>
+                        <Link to="/bots" className="btn-primary">MEET OUR BOTS</Link>
+                        <Link to="/contact" className="btn-ghost">JOIN THE TEAM</Link>
+                    </div>
+
+                    <div className="text-label" style={{
+                        position: 'absolute', bottom: '40px', left: '50%', transform: 'translateX(-50%)',
+                        animation: 'bounce 2s infinite'
+                    }}>
+                        SCROLL ↓
+                    </div>
+                    <style>{`
           @keyframes bounce { 
             0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); } 
             40% { transform: translateY(-10px) translateX(-50%); } 
             60% { transform: translateY(-5px) translateX(-50%); } 
           }
         `}</style>
+                </div>
             </section>
 
             {/* 3 — Stats Bar */}
@@ -89,9 +102,8 @@ export default function Home() {
                     </p>
                 </div>
                 <div style={{ flex: '1 1 500px' }}>
-                    <div style={{ width: '100%', aspectRatio: '1', border: '1px solid var(--border-subtle)', background: 'var(--bg-raised)', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-                        {/* Geometric shape placeholder */}
-                        <div style={{ width: '60%', height: '60%', background: 'linear-gradient(45deg, var(--bg-void) 0%, #1a1a1a 100%)', transform: 'rotate(45deg)', border: '1px solid var(--border-subtle)' }} />
+                    <div style={{ width: '60%', aspectRatio: '1', border: '1px solid var(--border-subtle)', background: 'var(--bg-raised)', position: 'relative', display: 'flex', alignItems: '', justifyContent: 'center', overflow: 'hidden' }}>
+                        <img src="/images/Founder.png" alt="Founder" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     </div>
                 </div>
             </section>

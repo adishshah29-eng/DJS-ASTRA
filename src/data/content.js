@@ -4,33 +4,69 @@ export const SITE_CONTENT = {
         headline: "BUILT TO DESTROY.",
         subHeadline: "Combat Robotics. Engineered for War.",
         stats: [
-            { metric: '07', label: 'ACTIVE BOTS' },
-            { metric: '3', label: 'COMPETITION WINS' },
-            { metric: '2019', label: 'SINCE' },
-            { metric: 'MUMBAI', label: 'DJS —' }
+            { metric: '03', label: 'ACTIVE BOTS' },
+            { metric: '0', label: 'COMPETITION WINS' },
+            { metric: '2022', label: 'SINCE' },
+            { metric: 'MUMBAI', label: 'DJ SANGHVI COLLEGE OF ENGINEERING' }
         ],
-        aboutTitle: "ARCHITECTS\nOF VICTORY.",
-        aboutText: "We design, build, and deploy 13.6KG to 100KG combat robots for national and international arenas. Blending precision mechanical engineering with brutal kinetic energy, we push the limits of combat robotics.",
+        aboutTitle: "FOUNDER.",
+        aboutText: "DJS-ASTRA founded in year 2022 by SHUBHAM MEHTA.",
         featuredBot: {
-            name: "ASTRA X",
-            class: "HEAVYWEIGHT",
+            name: "ARJUNA",
+            class: "15 KG ROBO WARS",
             weapon: "VERTICAL SPINNER",
             status: "COMBAT READY",
-            image: "/images/home-featured-bot.jpg" // Place your image in public/images/
+            image: "/images/ARJUNA_HERO.png"
         }
     },
     bots: {
         heroTitle: "OUR ARSENAL",
         heroSubtitle: "Every bot engineered to dominate the arena.",
         list: [
-            { name: 'ASTRA X', weight: 'HEAVYWEIGHT — 100KG', weapon: 'VERTICAL SPINNER', record: 'W: 8 / L: 2', status: 'COMBAT READY', active: true, image: "/images/bot-astra-x.jpg" },
-            { name: 'OBLIVION', weight: 'MIDDLEWEIGHT — 50KG', weapon: 'DRUM SPINNER', record: 'W: 12 / L: 1', status: 'COMBAT READY', active: true, image: "/images/bot-oblivion.jpg" },
-            { name: 'APEX', weight: 'FEATHERWEIGHT — 13.6KG', weapon: 'HATCHET', record: 'W: 5 / L: 4', status: 'IN BUILD', active: false, image: "/images/bot-apex.jpg" },
-            { name: 'NEMESIS', weight: 'MIDDLEWEIGHT — 50KG', weapon: 'FLIPPER', record: 'W: 20 / L: 5', status: 'RETIRED', active: false, image: "/images/bot-nemesis.jpg" },
+            {
+                id: 'ARJUNA', name: 'ARJUNA', weight: '15 KG ROBO WARS', weapon: 'VERTICAL SPINNER', record: 'W: 0 / L: 2', status: 'COMBAT READY', active: true, image: "/images/ARJUNA_HERO.png",
+                details: {
+                    model: "MK-IV",
+                    description: "The flagship heavyweight competitor. Engineered for maximum kinetic energy transfer and structural resilience in the arena.",
+                    specs: [
+                        { label: 'Class', value: '15 KG ROBO WARS' },
+                        { label: 'Weight', value: '15kg' },
+                        { label: 'Weapon System', value: 'Vertical Spinner' },
+                        { label: 'Drive Train', value: 'Dual Brushless' },
+                        { label: 'Armor Composition', value: 'ALUMINIUM 6061' },
+                        { label: 'Top Speed', value: '22 mph' }
+                    ],
+                    history: [
+                        { year: 'January 2026', event: 'Kurukshetra (Pune)', result: 'Participated', medal: '', description: 'Arjuna made its debut at Kurukshetra (Pune) in February 2026, marking the teams first foray into competitive combat robotics.', isWin: false },
+                        { year: 'February 2026', event: 'BITS GOA', result: 'Elimination Round', medal: '', description: 'Sustained critical drive damage in match 1 against "PRIXX". Repaired and ready for next season.', isWin: false }
+                    ],
+                    components: [
+                        { title: 'Propulsion', description: 'Custom wound brushless outrunners providing 12HP peak output.', image: '/images/astra-propulsion.jpg' },
+                        { title: 'Weapon Disk', description: 'AR500 steel single-tooth disk spinning at 250mph tip speed.', image: '/images/astra-weapon.jpg' },
+                        { title: 'Control Unit', description: 'Dual redundant receivers with telemetry feedback loop.', image: '/images/astra-control.jpg' }
+                    ]
+                }
+            },
+            {
+                id: 'RAUDRA', name: 'RAUDRA', weight: '15 KG ROBO WARS', weapon: 'DRUM SPINNER', record: 'W: 1 / L: 0', status: 'RETIRED', active: false, image: "/images/bot-nemesis.jpg",
+                details: { model: "", description: "", specs: [], history: [], components: [] }
+            },
+            {
+                id: 'KARNA', name: 'KARNA', weight: '8 KG ROBO WARS', weapon: 'DRUM SPINNER', record: 'W: 0 / L: 0', status: 'IN BUILD', active: false, image: "/images/bot-oblivion.jpg",
+                details: { model: "", description: "", specs: [], history: [], components: [] }
+            },
+            {
+                id: 'ABHIMANYU', name: 'ABHIMANYU', weight: 'BEATLE WEIGHT', weapon: 'VERTICAL SPINNER', record: 'W: 0 / L: 0', status: 'IN BUILD', active: false, image: "/images/bot-apex.jpg",
+                details: { model: "", description: "", specs: [], history: [], components: [] }
+            },
+            {
+                id: 'ANGAD', name: 'ANGAD', weight: 'SUMO & SORCER', weapon: 'WEDGE', record: 'W: 5 / L: 2', status: 'COMBAT READY', active: true, image: "/images/bot-nemesis.jpg",
+                details: { model: "", description: "", specs: [], history: [], components: [] }
+            },
         ]
     },
     team: {
-        heroTitle: "THE ENGINEERS",
+        heroTitle: "TEAM ASTRA",
         leadership: [
             { name: 'Yash Parab', role: 'CAPTAIN / MECHANICAL', year: 'BE MECH - 2024', image: "/images/team-karan.jpg" },
             { name: 'Khushagra Bhorse', role: 'MANAGER / ELECTRONICS', year: 'BE EXTC - 2024', image: "/images/team-riya.jpg" },
@@ -63,16 +99,17 @@ export const SITE_CONTENT = {
     contact: {
         heroTitle: "JOIN ASTRA",
         pitchTitle: "FORGE THE\nFUTURE OF\nCOMBAT",
-        bullets: ['Work on 100KG combat robots', 'Hands-on practical engineering', 'Compete on international stages'],
+        bullets: ['Work on combat robots', 'Hands-on practical engineering', 'Compete on national stages'],
         openings: [
             "CAD DESIGNER",
-            "MECHATRONICS LEAD",
-            "POWER ELECTRONICS"
+            "ELECTRONICS",
+            "CREATIVES",
+            "MARKETING",
+            "MANAGEMENT"
         ],
         social: [
-            { label: 'INSTAGRAM', url: '#instagram' },
-            { label: 'LINKEDIN', url: '#linkedin' },
-            { label: 'GITHUB', url: '#github' }
+            { label: 'INSTAGRAM', url: 'https://www.instagram.com/djs.astra/' },
+            { label: 'LINKEDIN', url: 'https://www.linkedin.com/company/djs-astra/' },
         ]
     }
 };

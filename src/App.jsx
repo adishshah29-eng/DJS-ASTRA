@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import FooterCTA from './components/FooterCTA';
 import Home from './pages/Home';
 import Bots from './pages/Bots';
+import BotDetail from './pages/BotDetail';
 import Team from './pages/Team';
 import Competitions from './pages/Competitions';
 import Contact from './pages/Contact';
@@ -16,6 +17,7 @@ function AnimatedRoutes() {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageTransition><Home /></PageTransition>} />
         <Route path="/bots" element={<PageTransition><Bots /></PageTransition>} />
+        <Route path="/bots/:id" element={<PageTransition><BotDetail /></PageTransition>} />
         <Route path="/team" element={<PageTransition><Team /></PageTransition>} />
         <Route path="/competitions" element={<PageTransition><Competitions /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />

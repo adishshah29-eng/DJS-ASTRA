@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ASTRA X - DJS ASTRA Bot Detail</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#bca676",
+                        "background-light": "#f7f7f6",
+                        "background-dark": "#1d1a16",
+                        "danger": "#FF3B30",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"] // Added for technical specs request
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for strictly industrial feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1d1a16; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #34322d; 
+            border-radius: 2px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #bca676; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen flex flex-col overflow-x-hidden selection:bg-primary selection:text-background-dark">
+<!-- Header -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#34322d] bg-background-dark px-6 py-4 sticky top-0 z-50">
+<div class="flex items-center gap-4 text-slate-100">
+<div class="size-6 text-primary">
+<span class="material-symbols-outlined !text-2xl">rocket_launch</span>
+</div>
+<h2 class="text-slate-100 text-xl font-bold leading-tight tracking-[-0.015em] font-display">DJS ASTRA</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-8">
+<nav class="flex items-center gap-9">
+<a class="text-slate-300 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Home</a>
+<a class="text-slate-300 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Team</a>
+<a class="text-primary text-sm font-medium leading-normal" href="#">Bots</a>
+<a class="text-slate-300 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Competitions</a>
+<a class="text-slate-300 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Sponsors</a>
+</nav>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-6 bg-primary text-background-dark text-sm font-bold leading-normal tracking-[0.015em] hover:bg-[#a38f63] transition-colors">
+<span class="truncate">Join Us</span>
+</button>
+</div>
+<button class="md:hidden text-slate-100">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<!-- Breadcrumb -->
+<div class="px-6 py-4 flex flex-wrap gap-2 bg-background-dark/50 border-b border-[#34322d]">
+<a class="text-[#b1ada5] hover:text-white text-sm font-medium leading-normal" href="#">Home</a>
+<span class="text-[#b1ada5] text-sm font-medium leading-normal">/</span>
+<a class="text-[#b1ada5] hover:text-white text-sm font-medium leading-normal" href="#">Our Fleet</a>
+<span class="text-[#b1ada5] text-sm font-medium leading-normal">/</span>
+<span class="text-primary text-sm font-medium leading-normal">ASTRA X</span>
+</div>
+<!-- Main Content Grid -->
+<main class="flex-grow grid grid-cols-1 lg:grid-cols-12 gap-0 lg:gap-8">
+<!-- Left Column: Hero Image -->
+<div class="lg:col-span-7 relative h-[50vh] lg:h-auto min-h-[400px] border-b lg:border-b-0 lg:border-r border-[#34322d] overflow-hidden group">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Close up of a metallic robot chassis with exposed wiring and battle damage" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC7q1yrUj5HcK-Vt9yI307qY0VQEmSf-MqnCDvgFPGGMtUXUg4VX3CyNct8mdnE8I9Ycf0o_O6qZbtRbZ6HSWauNyFMRIQvje5DbyTzt25_9VBSv4lbrYeLeFvPyB8Fu_pR-H3RHH3QvQnyst94xRzkbn-t5lbz7M8HGWWpS-VTd56iT4NKHiPOruNCoFaCQCS2HfBrILgQBlf4PAC5BbY24fBSUrggspOrLhW_zU10pUjEC8yJCBRB_rgNHEAP8Vg4SRmrOPHPtLU');">
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-background-dark opacity-90"></div>
+</div>
+<!-- Floating overlay on mobile only -->
+<div class="absolute bottom-6 left-6 lg:hidden">
+<div class="flex items-center gap-2 mb-2">
+<span class="bg-danger/20 text-danger border border-danger/40 px-2 py-0.5 text-xs font-mono rounded uppercase tracking-wider">Combat Ready</span>
+<span class="bg-primary/20 text-primary border border-primary/40 px-2 py-0.5 text-xs font-mono rounded uppercase tracking-wider">Season 5</span>
+</div>
+<h1 class="text-white text-4xl font-black uppercase tracking-tighter">ASTRA X</h1>
+</div>
+</div>
+<!-- Right Column: Specs & Info -->
+<div class="lg:col-span-5 flex flex-col p-6 lg:p-10 lg:pl-0">
+<!-- Desktop Header -->
+<div class="hidden lg:flex flex-col gap-4 mb-10">
+<div class="flex items-center gap-3">
+<span class="bg-danger/10 text-danger border border-danger/30 px-3 py-1 text-xs font-mono font-bold rounded uppercase tracking-wider flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-danger animate-pulse"></span>
+                        Active Status
+                    </span>
+<span class="text-[#686661] text-xs font-mono uppercase tracking-widest">Model: MK-IV</span>
+</div>
+<h1 class="text-white text-6xl font-black uppercase tracking-tighter leading-none">ASTRA<span class="text-primary">X</span></h1>
+<p class="text-[#b1ada5] text-lg font-light leading-relaxed max-w-md mt-2">
+                    The flagship heavyweight competitor. Engineered for maximum kinetic energy transfer and structural resilience in the arena.
+                </p>
+</div>
+<!-- Technical Specifications Grid -->
+<div class="mb-12">
+<h3 class="text-white flex items-center gap-2 text-sm uppercase tracking-widest font-bold mb-6 border-b border-[#34322d] pb-2">
+<span class="material-symbols-outlined text-primary text-lg">settings</span>
+                    Technical Specifications
+                </h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 font-mono text-sm">
+<!-- Spec Item -->
+<div class="flex flex-col gap-1 group">
+<span class="text-[#686661] text-xs uppercase tracking-wider group-hover:text-primary transition-colors">Class</span>
+<div class="text-slate-100 font-medium border-l-2 border-[#34322d] pl-3 group-hover:border-primary transition-colors">
+                            Heavyweight
+                        </div>
+</div>
+<!-- Spec Item -->
+<div class="flex flex-col gap-1 group">
+<span class="text-[#686661] text-xs uppercase tracking-wider group-hover:text-primary transition-colors">Weight</span>
+<div class="text-slate-100 font-medium border-l-2 border-[#34322d] pl-3 group-hover:border-primary transition-colors">
+                            100kg
+                        </div>
+</div>
+<!-- Spec Item -->
+<div class="flex flex-col gap-1 group">
+<span class="text-[#686661] text-xs uppercase tracking-wider group-hover:text-primary transition-colors">Weapon System</span>
+<div class="text-danger font-bold border-l-2 border-[#34322d] pl-3 group-hover:border-danger transition-colors flex items-center gap-2">
+                             Vertical Spinner
+                             <span class="material-symbols-outlined text-base">warning</span>
+</div>
+</div>
+<!-- Spec Item -->
+<div class="flex flex-col gap-1 group">
+<span class="text-[#686661] text-xs uppercase tracking-wider group-hover:text-primary transition-colors">Drive Train</span>
+<div class="text-slate-100 font-medium border-l-2 border-[#34322d] pl-3 group-hover:border-primary transition-colors">
+                            Dual Brushless 
+                        </div>
+</div>
+<!-- Spec Item -->
+<div class="flex flex-col gap-1 group">
+<span class="text-[#686661] text-xs uppercase tracking-wider group-hover:text-primary transition-colors">Armor Composition</span>
+<div class="text-slate-100 font-medium border-l-2 border-[#34322d] pl-3 group-hover:border-primary transition-colors">
+                            Hardox 500
+                        </div>
+</div>
+<!-- Spec Item -->
+<div class="flex flex-col gap-1 group">
+<span class="text-[#686661] text-xs uppercase tracking-wider group-hover:text-primary transition-colors">Top Speed</span>
+<div class="text-slate-100 font-medium border-l-2 border-[#34322d] pl-3 group-hover:border-primary transition-colors">
+                            22 mph
+                        </div>
+</div>
+</div>
+</div>
+<!-- Competition History Timeline -->
+<div class="flex-grow">
+<h3 class="text-white flex items-center gap-2 text-sm uppercase tracking-widest font-bold mb-6 border-b border-[#34322d] pb-2">
+<span class="material-symbols-outlined text-primary text-lg">history</span>
+                    Combat History
+                </h3>
+<div class="relative border-l border-[#34322d] ml-3 space-y-8 pb-4">
+<!-- Timeline Event 1 -->
+<div class="relative pl-8">
+<div class="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-primary ring-4 ring-background-dark"></div>
+<div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+<h4 class="text-white text-base font-bold">RoboGames 2024</h4>
+<span class="text-[#686661] text-xs font-mono">April 2024</span>
+</div>
+<div class="bg-[#26241f] rounded p-3 mt-2 border border-[#34322d]">
+<div class="flex items-center justify-between mb-2">
+<span class="text-primary text-sm font-bold">Gold Medalist</span>
+<span class="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded uppercase font-bold">1st Place</span>
+</div>
+<p class="text-[#b1ada5] text-sm leading-relaxed">
+                                Undefeated run. Secured victory against "Ironclad" in the finals via KO in 1:45.
+                            </p>
+</div>
+</div>
+<!-- Timeline Event 2 -->
+<div class="relative pl-8">
+<div class="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-[#34322d] ring-4 ring-background-dark"></div>
+<div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+<h4 class="text-white text-base font-bold">BattleBots World Championship</h4>
+<span class="text-[#686661] text-xs font-mono">Oct 2023</span>
+</div>
+<div class="bg-[#26241f] rounded p-3 mt-2 border border-[#34322d]">
+<div class="flex items-center justify-between mb-2">
+<span class="text-slate-300 text-sm font-medium">Quarter Finalist</span>
+<span class="text-xs bg-[#34322d] text-slate-400 px-2 py-0.5 rounded uppercase font-bold">Top 8</span>
+</div>
+<p class="text-[#b1ada5] text-sm leading-relaxed">
+                                Sustained critical drive damage in match 4 against "Blackout". Repaired and ready for next season.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="mt-8 pt-6 border-t border-[#34322d] flex gap-4">
+<button class="flex-1 bg-white text-background-dark hover:bg-slate-200 font-bold py-3 px-4 rounded text-sm uppercase tracking-wide transition-colors">
+                    View 3D Model
+                </button>
+<button class="flex-1 border border-[#34322d] hover:border-primary text-white hover:text-primary font-bold py-3 px-4 rounded text-sm uppercase tracking-wide transition-colors bg-transparent">
+                    Watch Matches
+                </button>
+</div>
+</div>
+</main>
+<!-- Visual Component Grid - Bottom Section -->
+<section class="border-t border-[#34322d] bg-[#161513] px-6 py-12 lg:px-40">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-white text-2xl font-bold">Components &amp; Systems</h3>
+<a class="text-primary hover:text-white text-sm font-medium flex items-center gap-1 transition-colors" href="#">
+                Full Schematic <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="group relative bg-[#1d1a16] border border-[#34322d] hover:border-primary/50 transition-colors rounded overflow-hidden">
+<div class="aspect-video w-full bg-cover bg-center opacity-70 group-hover:opacity-100 transition-opacity" data-alt="Close up of a complex electric motor with copper windings" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAJfvXWOq4C1_DbNRU8nEOlEotTLxRYQO7Yyr2x6_UBX57PtOOKZS5atOT1mPgzgoFGzpBMd2rRdGi71xht-NFA5YuoSyHpbBUh-heIPBqVX5FN4t8wruB2ZKCEou6hoI7gUGIQg0YsMJKkQ5XXSbtRUSi81V4ZngTXbqkEIu9I0OtF8NENj6MAkmLG2QhJgdxrwVUvPPmkhv99F4FkEFPBrncMxpHeL05oW1XzcalDkwGBw0r50IvPJAG9uTQPirM0qj6OyGCMTOM');"></div>
+<div class="p-4">
+<h4 class="text-white font-bold mb-1">Propulsion</h4>
+<p class="text-[#b1ada5] text-sm">Custom wound brushless outrunners providing 12HP peak output.</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group relative bg-[#1d1a16] border border-[#34322d] hover:border-danger/50 transition-colors rounded overflow-hidden">
+<div class="absolute top-3 right-3 z-10">
+<span class="material-symbols-outlined text-danger">local_fire_department</span>
+</div>
+<div class="aspect-video w-full bg-cover bg-center opacity-70 group-hover:opacity-100 transition-opacity" data-alt="Abstract view of sharp metallic blades or gears" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBN_1bTWHmHD2s2fRbI83My8RY3Gr0NHipjEL-5N07gu6a-b2hM84XXHTcK78O_0nNY_IKFBGICdLd9r6aAgnuMhyhTAK16W0RtzCMbL7H_LizglcrziBeVRJckrtKWlC2kq4huZFmTQfDwWsaLq-dkS7LqtarUAwtpLy2dFi7PrmJloyKQkqoR-bCpF5BByfSqYSWk_Ve8beSL9Vf2rsGOJ86efjY7mg7hvo0wav17gIWHc1NcLPAz-MHUceEbNVy3O9r04dusHa4');"></div>
+<div class="p-4">
+<h4 class="text-white font-bold mb-1">Weapon Disk</h4>
+<p class="text-[#b1ada5] text-sm">AR500 steel single-tooth disk spinning at 250mph tip speed.</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group relative bg-[#1d1a16] border border-[#34322d] hover:border-primary/50 transition-colors rounded overflow-hidden">
+<div class="aspect-video w-full bg-cover bg-center opacity-70 group-hover:opacity-100 transition-opacity" data-alt="Electronic circuit board with advanced wiring" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAbCWbCyFXXG76OOcbDndqRzBPxUZRLkpOcXxY_CfRz93ZP-jfzLNd9sAztKwN5MhLaCehWymht6TiHVJYbWxsrJ8Hr-61Xf4An43dBx4iEp00SPgQjZ_aaKwxYJCEJumHnsVswkDtVOozl2N-2m1EXxZ9Bh_XpDpiArxhEhxI7ULzSqxdA1MBO-gGL-zkgzeCGv9Pd8n7UtFbIgrCD9hpBxDb6RFWAgMN6ayMJtn9kwWStdEMLCzBsgctSb-kwjcKMv5rEmvGeiLk');"></div>
+<div class="p-4">
+<h4 class="text-white font-bold mb-1">Control Unit</h4>
+<p class="text-[#b1ada5] text-sm">Dual redundant receivers with telemetry feedback loop.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="border-t border-[#34322d] bg-background-dark py-10 px-6 lg:px-40 text-center">
+<p class="text-[#686661] text-sm mb-4">© 2024 DJS ASTRA Combat Robotics. All rights reserved.</p>
+<div class="flex justify-center gap-6">
+<a class="text-[#b1ada5] hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">smart_display</span></a>
+<a class="text-[#b1ada5] hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+<a class="text-[#b1ada5] hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+</div>
+</footer>
+</body></html>

@@ -1,5 +1,6 @@
 import { useReveal } from '../lib/utils';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { SITE_CONTENT } from '../data/content';
 
 export default function Bots() {
@@ -22,7 +23,7 @@ export default function Bots() {
             {/* 2 — Bot Grid */}
             <section className="container">
                 <div className="reveal" style={{ display: 'flex', gap: '16px', marginBottom: '48px', justifyContent: 'center' }}>
-                    {['ALL', 'HEAVYWEIGHT', 'MIDDLEWEIGHT', 'FEATHERWEIGHT'].map(f => (
+                    {['ALL', '15 KG ROBO WARS', '8 KG ROBO WARS', 'BEATLE WEIGHT', 'SUMO & SORCER'].map(f => (
                         <button key={f} onClick={() => setFilter(f)} style={{
                             background: 'transparent',
                             border: filter === f ? '1px solid var(--accent-gold)' : '1px solid var(--border-subtle)',
@@ -53,7 +54,7 @@ export default function Bots() {
 
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '32px' }}>
                                 <span className="badge" style={{ borderColor: 'var(--border-subtle)', color: 'var(--text-muted)' }}>{bot.status}</span>
-                                <button className="btn-ghost" style={{ padding: '8px 24px' }} onClick={() => alert(`Detailed schematics for ${bot.name} are currently classified. Contact the team for more info.`)}>VIEW BOT</button>
+                                <Link to={`/bots/${bot.id}`} className="btn-ghost" style={{ padding: '8px 24px', textDecoration: 'none' }}>VIEW BOT</Link>
                             </div>
                         </div>
                     ))}
