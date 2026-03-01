@@ -14,7 +14,7 @@ export default function Team() {
 
             {/* 3 — Leadership Row */}
             <section className="container reveal" style={{ marginBottom: '64px' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '32px' }}>
+                <div className="leadership-grid">
                     {team.leadership.map((member, i) => (
                         <div key={i} className="card" style={{ padding: '0', border: '1px solid var(--border-subtle)' }}>
                             <div style={{ aspectRatio: '1', background: `var(--bg-raised) url(${member.image}) center/cover`, filter: 'grayscale(100%)', transition: 'filter 300ms ease' }}
@@ -33,7 +33,7 @@ export default function Team() {
 
             {/* 2 — Team Grid */}
             <section className="container reveal">
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '24px' }}>
+                <div className="team-grid">
                     {team.members.map((member, i) => (
                         <div key={i} className="card" style={{ padding: '0', border: '1px solid var(--border-subtle)', background: 'var(--bg-void)' }}>
                             <div style={{ aspectRatio: '4/5', background: `var(--bg-surface) url(${member.image}) center/cover`, filter: 'grayscale(100%)', transition: 'filter 300ms ease' }}

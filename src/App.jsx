@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import FooterCTA from './components/FooterCTA';
+import Footer from './components/Footer';
+import CustomCursor from './components/CustomCursor';
 import Home from './pages/Home';
 import Bots from './pages/Bots';
 import BotDetail from './pages/BotDetail';
@@ -11,6 +13,7 @@ import Contact from './pages/Contact';
 import PageTransition from './components/PageTransition';
 
 function AnimatedRoutes() {
+
   const location = useLocation();
   return (
     <AnimatePresence mode="wait">
@@ -29,12 +32,14 @@ function AnimatedRoutes() {
 function App() {
   return (
     <Router>
+      <CustomCursor />
       <div className="app-container">
         <Navbar />
         <main style={{ marginTop: 'var(--nav-height)' }}>
           <AnimatedRoutes />
         </main>
         <FooterCTA />
+        <Footer />
       </div>
     </Router>
   );
