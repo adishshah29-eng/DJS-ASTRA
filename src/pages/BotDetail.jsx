@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { useReveal } from '../lib/utils';
 import { SITE_CONTENT } from '../data/content';
+import ModelViewer from '../components/ModelViewer';
 
 export default function BotDetail() {
     useReveal();
@@ -35,11 +36,14 @@ export default function BotDetail() {
 
                 {/* Left Column: Hero Image Container */}
                 <div className="reveal" style={{ flex: '1 1 50vw', minHeight: '500px', borderRight: '1px solid var(--border-subtle)', position: 'relative' }}>
-                    {/* The image acts as a background fill */}
-                    <div style={{ position: 'absolute', inset: 0, background: `var(--bg-void) url(${bot.image}) center/cover` }}>
-                        {/* Gradient overlay to blend into the background at the edges */}
-                        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, var(--bg-void) 0%, transparent 100%)', opacity: 0.8 }} />
-                    </div>
+                    {bot.modelUrl ? (
+                        <ModelViewer modelUrl={bot.modelUrl} />
+                    ) : (
+                        <div style={{ position: 'absolute', inset: 0, background: `var(--bg-void) url(${bot.image}) center/cover` }}>
+                            {/* Gradient overlay to blend into the background at the edges */}
+                            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, var(--bg-void) 0%, transparent 100%)', opacity: 0.8 }} />
+                        </div>
+                    )}
                 </div>
 
                 {/* Right Column: Specifications & History */}
@@ -126,29 +130,31 @@ export default function BotDetail() {
                         </div>
                     )}
                 </div>
-            </main>
+            </main >
 
             {/* Components & Systems Grid */}
-            {details?.components?.length > 0 && (
-                <section className="reveal" style={{ borderTop: '1px solid var(--border-subtle)', background: 'var(--bg-surface)', padding: '80px 4vw' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '40px' }}>
-                        <h3 className="font-display" style={{ fontSize: '32px', color: 'var(--text-primary)', margin: 0 }}>COMPONENTS & SYSTEMS</h3>
-                    </div>
+            {
+                details?.components?.length > 0 && (
+                    <section className="reveal" style={{ borderTop: '1px solid var(--border-subtle)', background: 'var(--bg-surface)', padding: '80px 4vw' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '40px' }}>
+                            <h3 className="font-display" style={{ fontSize: '32px', color: 'var(--text-primary)', margin: 0 }}>COMPONENTS & SYSTEMS</h3>
+                        </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
-                        {details.components.map((comp, i) => (
-                            <div key={i} style={{ background: 'var(--bg-void)', border: '1px solid var(--border-subtle)', borderRadius: '2px', overflow: 'hidden' }}>
-                                <div style={{ width: '100%', aspectRatio: '16/9', background: `var(--bg-raised) url(${comp.image}) center/cover`, opacity: 0.8 }} />
-                                <div style={{ padding: '24px' }}>
-                                    <h4 className="font-display" style={{ fontSize: '20px', color: 'var(--text-primary)', margin: '0 0 8px 0' }}>{comp.title}</h4>
-                                    <p className="text-body" style={{ color: 'var(--text-muted)', fontSize: '14px', margin: 0 }}>{comp.description}</p>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
+                            {details.components.map((comp, i) => (
+                                <div key={i} style={{ background: 'var(--bg-void)', border: '1px solid var(--border-subtle)', borderRadius: '2px', overflow: 'hidden' }}>
+                                    <div style={{ width: '100%', aspectRatio: '16/9', background: `var(--bg-raised) url(${comp.image}) center/cover`, opacity: 0.8 }} />
+                                    <div style={{ padding: '24px' }}>
+                                        <h4 className="font-display" style={{ fontSize: '20px', color: 'var(--text-primary)', margin: '0 0 8px 0' }}>{comp.title}</h4>
+                                        <p className="text-body" style={{ color: 'var(--text-muted)', fontSize: '14px', margin: 0 }}>{comp.description}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
-                    </div>
-                </section>
-            )}
+                            ))}
+                        </div>
+                    </section>
+                )
+            }
 
-        </div>
+        </div >
     );
 }

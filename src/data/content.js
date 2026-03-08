@@ -48,8 +48,8 @@ export const SITE_CONTENT = {
                 }
             },
             {
-                id: 'RAUDRA', name: 'RAUDRA', weight: '15 KG ROBO WARS', weapon: 'DRUM SPINNER', record: 'W: 1 / L: 0', status: 'RETIRED', active: false, image: "/images/bot-nemesis.jpg",
-                details: { model: "", description: "", specs: [], history: [], components: [] }
+                id: 'RAUDRA', name: 'RAUDRA', weight: '15 KG ROBO WARS', weapon: 'DRUM SPINNER', record: 'W: 1 / L: 0', status: 'RETIRED', active: false, image: "/images/bot-nemesis.jpg", modelUrl: "/models/Raudra3DModel.glb",
+                details: { model: "MK-I", description: "Raudra incorporates a high-speed drum spinner and advanced chassis.", specs: [], history: [], components: [] }
             },
             {
                 id: 'KARNA', name: 'KARNA', weight: '8 KG ROBO WARS', weapon: 'DRUM SPINNER', record: 'W: 0 / L: 0', status: 'IN BUILD', active: false, image: "/images/bot-oblivion.jpg",
