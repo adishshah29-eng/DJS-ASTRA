@@ -1,16 +1,17 @@
 import { useState, useEffect, useRef } from 'react';
 
-export default function CustomCursor() {
+    export default function CustomCursor() {
     const ringRef = useRef(null);
+    const dotRef = useRef(null);
 
     const [isHovering, setIsHovering] = useState(false);
     const [isClicked, setIsClicked] = useState(false);
     const [isHidden, setIsHidden] = useState(false);
 
     // Track mouse position instantly
-    const mouse = useRef({ x: 0, y: 0 });
+    const mouse = useRef({ x: -100, y: -100 });
     // Track the delayed position for the outer ring
-    const delayedMouse = useRef({ x: 0, y: 0 });
+    const delayedMouse = useRef({ x: -100, y: -100 });
 
     useEffect(() => {
         let rafId;
@@ -33,6 +34,9 @@ export default function CustomCursor() {
 
         const onMouseMove = (e) => {
             mouse.current = { x: e.clientX, y: e.clientY };
+            if (dotRef.current) {
+                dotRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+            }
         };
 
         const onMouseDown = () => setIsClicked(true);
@@ -81,6 +85,11 @@ export default function CustomCursor() {
 
     return (
         <>
+            {/* Inner Dot: Instant tracking */}
+            <div
+                ref={dotRef}
+                className={`cursor-dot ${isHidden ? 'hidden' : ''} ${isHovering ? 'hovering' : ''}`}
+            />
             {/* Outer Ring: Smooth, trailing, elegant */}
             <div
                 ref={ringRef}
@@ -95,6 +104,30 @@ export default function CustomCursor() {
 
                 * {
                     cursor: none !important;
+                }
+                
+                /* --- INNER DOT --- */
+                .cursor-dot {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 6px;
+                    height: 6px;
+                    background-color: var(--cursor-gold);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 10000;
+                    mix-blend-mode: difference;
+                    transition: opacity 0.2s ease-in-out, transform 0.1s ease-out;
+                }
+
+                .cursor-dot.hidden {
+                    opacity: 0;
+                }
+
+                .cursor-dot.hovering {
+                    transform: scale(0) translate(-50%, -50%);
+                    opacity: 0;
                 }
 
                 /* --- OUTER RING ONLY --- */

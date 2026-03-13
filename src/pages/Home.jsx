@@ -1,131 +1,50 @@
-import { useEffect, useState } from 'react';
-import { useReveal } from '../lib/utils';
-import { Link } from 'react-router-dom';
+import React, { Suspense } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { ScrollControls } from '@react-three/drei';
+import Scene from '../components/home/Scene';
+import Overlay from '../components/home/Overlay';
+import Loader from '../components/home/Loader';
 import { SITE_CONTENT } from '../data/content';
 
 export default function Home() {
-    useReveal();
-    const [heroTextVisible, setHeroTextVisible] = useState(false);
+  const { hero, bots } = SITE_CONTENT;
+  const TOTAL_PAGES = bots.list.length + 3;
 
-    useEffect(() => {
-        // Staggered reveal for hero text
-        const timer = setTimeout(() => setHeroTextVisible(true), 300);
-        return () => clearTimeout(timer);
-    }, []);
+  return (
+    <div style={{
+      width: '100vw',
+      height: 'calc(100vh - var(--nav-height))',
+      background: 'var(--bg-void)',
+      position: 'fixed',
+      top: 'var(--nav-height)',
+      left: 0,
+    }}>
+      
+      {/* 3D Canvas */}
+      <Canvas
+        gl={{ antialias: true, alpha: false }}
+        camera={{ position: [0, 0, 5], fov: 50 }}
+        style={{ background: '#0A0A0A' }}
+      >
+        <ScrollControls pages={TOTAL_PAGES} damping={0.25}>
+          <Scene bots={bots.list} totalPages={TOTAL_PAGES} />
+          <Overlay bots={bots.list} hero={hero} totalPages={TOTAL_PAGES} />
+        </ScrollControls>
+      </Canvas>
 
-    const { hero } = SITE_CONTENT;
-    const headlineTokens = hero.headline.split(" ");
+      {/* Elegant HTML Loader over the entire canvas container */}
+      <Loader />
 
-    return (
-        <>
-            {/* 2 — Hero */}
-            <section style={{ height: 'calc(100vh - var(--nav-height))', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+      {/* Grain overlay — rendered in DOM, not WebGL */}
+      <div style={{
+        position: 'fixed', inset: 0,
+        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+        backgroundSize: '200px 200px',
+        opacity: 0.04,
+        pointerEvents: 'none',
+        zIndex: 10,
+      }} />
 
-                {/* Background Hero Image */}
-                <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-                    <div className="reveal visible" style={{ position: 'absolute', inset: 0, background: `url(${hero.featuredBot.image}) center/cover no-repeat`, opacity: 0.5, mixBlendMode: 'luminosity', transition: 'all 2s ease-out' }} />
-                    {/* Radial and Linear gradients to cleanly blend the edges into pure void black */}
-                    <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, transparent 0%, var(--bg-void) 100%)' }} />
-                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, var(--bg-void) 0%, transparent 40%)' }} />
-                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, var(--bg-void) 0%, transparent 20%)' }} />
-                </div>
-
-                {/* Wrap all content in relative z-10 so it sits above the image */}
-                <div style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <div style={{
-                        fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--accent-gold)',
-                        letterSpacing: '0.4em', marginBottom: '24px', opacity: heroTextVisible ? 1 : 0,
-                        transition: 'opacity 1s ease 0.2s'
-                    }}>
-                        {hero.preTitle}
-                    </div>
-
-                    <h1 className="text-hero" style={{ marginBottom: '16px', display: 'flex', gap: '2vw', flexWrap: 'wrap', justifyContent: 'center' }}>
-                        {headlineTokens.map((word, i) => (
-                            <span key={i} style={{
-                                display: 'inline-block',
-                                opacity: heroTextVisible ? 1 : 0,
-                                transform: heroTextVisible ? 'translateY(0)' : 'translateY(40px)',
-                                transition: `all 800ms cubic-bezier(0.2, 0.8, 0.2, 1) ${0.1 * i + 0.4}s`
-                            }}>
-                                {word}
-                            </span>
-                        ))}
-                    </h1>
-
-                    <p className="text-body reveal" style={{
-                        fontSize: '16px', opacity: 0.6, marginBottom: '48px', maxWidth: '600px'
-                    }}>
-                        {hero.subHeadline}
-                    </p>
-
-                    <div className="reveal" style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', justifyContent: 'center' }}>
-                        <Link to="/bots" className="btn-primary">MEET OUR BOTS</Link>
-                        <Link to="/contact" className="btn-ghost">JOIN THE TEAM</Link>
-                    </div>
-
-                    <div className="text-label" style={{
-                        position: 'absolute', bottom: '40px', left: '50%', transform: 'translateX(-50%)',
-                        animation: 'bounce 2s infinite'
-                    }}>
-                        SCROLL ↓
-                    </div>
-                    <style>{`
-          @keyframes bounce { 
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); } 
-            40% { transform: translateY(-10px) translateX(-50%); } 
-            60% { transform: translateY(-5px) translateX(-50%); } 
-          }
-        `}</style>
-                </div>
-            </section>
-
-            {/* 3 — Stats Bar */}
-            <section className="reveal" style={{ background: 'var(--bg-surface)', borderTop: '1px solid var(--border-subtle)', borderBottom: '1px solid var(--border-subtle)', padding: '40px 0' }}>
-                <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '32px', textAlign: 'center' }}>
-                    {hero.stats.map((stat, i) => (
-                        <div key={i} className="text-mono">
-                            <span style={{ color: 'var(--accent-gold)', fontSize: '24px', display: 'block', marginBottom: '8px' }}>{stat.metric}</span>
-                            <span style={{ color: 'var(--text-primary)', fontSize: '11px', letterSpacing: '0.15em' }}>{stat.label}</span>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            {/* 4 — Brief Intro */}
-            <section className="container reveal" style={{ display: 'flex', flexWrap: 'wrap', gap: '64px', alignItems: 'center' }}>
-                <div style={{ flex: '1 1 400px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-                    <div className="text-label" style={{ color: 'var(--accent-gold)', marginBottom: '32px' }}>// ABOUT THE TEAM</div>
-                    <h2 className="text-h2" style={{ marginBottom: '24px', whiteSpace: 'pre-line' }}>{hero.aboutTitle}</h2>
-                    <p className="text-body" style={{ color: 'var(--text-muted)' }}>
-                        {hero.aboutText}
-                    </p>
-                </div>
-                <div style={{ flex: '1 1 500px' }}>
-                    <div style={{ width: '60%', aspectRatio: '1', border: '1px solid var(--border-subtle)', background: 'var(--bg-raised)', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-                        <img src="/images/Founder.png" alt="Founder" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                    </div>
-                </div>
-            </section>
-
-            {/* 5 — Featured Bot Teaser */}
-            <section className="reveal" style={{ background: 'var(--bg-surface)', padding: '140px 0' }}>
-                <div className="container" style={{ display: 'flex', flexWrap: 'wrap', gap: '48px', alignItems: 'center' }}>
-                    <div style={{ flex: '1 1 400px' }}>
-                        <div style={{ width: '100%', aspectRatio: '4/3', background: `var(--bg-void) url(${hero.featuredBot.image}) center/cover`, border: '1px solid var(--border-subtle)' }} />
-                    </div>
-                    <div style={{ flex: '1 1 300px' }}>
-                        <h3 className="font-display" style={{ color: 'var(--accent-gold)', fontSize: '48px', marginBottom: '24px' }}>{hero.featuredBot.name}</h3>
-                        <div className="text-mono" style={{ fontSize: '13px', lineHeight: '2.5', marginBottom: '32px', color: 'var(--text-muted)' }}>
-                            NAME <span style={{ color: 'var(--text-primary)', marginLeft: '8px' }}>{hero.featuredBot.name}</span><br />
-                            CLASS <span style={{ color: 'var(--text-primary)', marginLeft: '8px' }}>{hero.featuredBot.class}</span><br />
-                            WEAPON <span style={{ color: 'var(--accent-red)', marginLeft: '8px' }}>{hero.featuredBot.weapon}</span><br />
-                            STATUS <span style={{ color: 'var(--accent-gold)', marginLeft: '8px' }}>{hero.featuredBot.status}</span>
-                        </div>
-                        <Link to="/bots" className="btn-primary">VIEW ALL BOTS</Link>
-                    </div>
-                </div>
-            </section>
-        </>
-    );
+    </div>
+  )
 }

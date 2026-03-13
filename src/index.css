@@ -303,9 +303,30 @@ section {
 
 @media (max-width: 768px) {
 
-  .leadership-grid,
-  .team-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
+  .leadership-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
   }
+
+  .team-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 16px;
+  }
+}
+
+* { cursor: none; }
+body { background: var(--bg-void); }
+
+/* Hide the ThreeJS ScrollControls right scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes bounceDown {
+  0%, 100% { opacity: 0.5; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 1; transform: translateX(-50%) translateY(5px); }
 }

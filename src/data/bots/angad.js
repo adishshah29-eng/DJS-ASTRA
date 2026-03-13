@@ -1,5 +1,9 @@
 export const angad = {
-    id: 'ANGAD', name: 'ANGAD', weight: 'SUMO & SORCER', weapon: 'WEDGE', record: 'W: 5 / L: 2', status: 'COMBAT READY', active: true, image: "/images/bot-nemesis.jpg",
+    id: 'ANGAD', name: 'ANGAD', weight: 'SUMO & SORCER', weapon: 'WEDGE', record: 'W: 5 / L: 2', wins: 5, losses: 2, status: 'COMBAT READY', active: true, image: "/images/bot-nemesis.jpg", modelUrl: "/models/Raudra3DModel.glb",
+    tagline: "Unstoppable force meets immovable wedge.",
+    weaponType: "DEFLECTIVE PLOW",
+    armor: "Hardox Steel 500",
+    drive: "High Traction 4WD",
     details: {
         model: "SM-III",
         description: "A highly resilient sumo bot featuring an aggressive wedge design to control the arena.",

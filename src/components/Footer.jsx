@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+
 
 export default function Footer() {
     return (
@@ -31,10 +31,10 @@ export default function Footer() {
                     <div style={{ flex: '2 1 400px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '48px' }}>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                             <h4 className="text-label" style={{ color: 'var(--text-primary)', marginBottom: '8px' }}>NAVIGATION</h4>
-                            <Link to="/" className="text-body" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 300ms ease' }} onMouseEnter={e => e.target.style.color = 'var(--accent-gold)'} onMouseLeave={e => e.target.style.color = 'var(--text-muted)'}>Home</Link>
-                            <Link to="/team" className="text-body" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 300ms ease' }} onMouseEnter={e => e.target.style.color = 'var(--accent-gold)'} onMouseLeave={e => e.target.style.color = 'var(--text-muted)'}>The Team</Link>
-                            <Link to="/bots" className="text-body" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 300ms ease' }} onMouseEnter={e => e.target.style.color = 'var(--accent-gold)'} onMouseLeave={e => e.target.style.color = 'var(--text-muted)'}>Our Bots</Link>
-                            <Link to="/competitions" className="text-body" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 300ms ease' }} onMouseEnter={e => e.target.style.color = 'var(--accent-gold)'} onMouseLeave={e => e.target.style.color = 'var(--text-muted)'}>Competitions</Link>
+                            <a href="/" className="text-body" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 300ms ease' }} onMouseEnter={e => e.target.style.color = 'var(--accent-gold)'} onMouseLeave={e => e.target.style.color = 'var(--text-muted)'}>Home</a>
+                            <a href="/team" className="text-body" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 300ms ease' }} onMouseEnter={e => e.target.style.color = 'var(--accent-gold)'} onMouseLeave={e => e.target.style.color = 'var(--text-muted)'}>The Team</a>
+                            <a href="/bots" className="text-body" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 300ms ease' }} onMouseEnter={e => e.target.style.color = 'var(--accent-gold)'} onMouseLeave={e => e.target.style.color = 'var(--text-muted)'}>Our Bots</a>
+                            <a href="/competitions" className="text-body" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 300ms ease' }} onMouseEnter={e => e.target.style.color = 'var(--accent-gold)'} onMouseLeave={e => e.target.style.color = 'var(--text-muted)'}>Competitions</a>
                         </div>
 
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -42,7 +42,7 @@ export default function Footer() {
                             <a href="#" className="text-body" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 300ms ease' }} onMouseEnter={e => e.target.style.color = 'var(--accent-gold)'} onMouseLeave={e => e.target.style.color = 'var(--text-muted)'}>Instagram</a>
                             <a href="#" className="text-body" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 300ms ease' }} onMouseEnter={e => e.target.style.color = 'var(--accent-gold)'} onMouseLeave={e => e.target.style.color = 'var(--text-muted)'}>LinkedIn</a>
                             <a href="#" className="text-body" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 300ms ease' }} onMouseEnter={e => e.target.style.color = 'var(--accent-gold)'} onMouseLeave={e => e.target.style.color = 'var(--text-muted)'}>YouTube</a>
-                            <Link to="/contact" className="text-body" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 300ms ease' }} onMouseEnter={e => e.target.style.color = 'var(--accent-gold)'} onMouseLeave={e => e.target.style.color = 'var(--text-muted)'}>Email Us</Link>
+                            <a href="/contact" className="text-body" style={{ color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 300ms ease' }} onMouseEnter={e => e.target.style.color = 'var(--accent-gold)'} onMouseLeave={e => e.target.style.color = 'var(--text-muted)'}>Email Us</a>
                         </div>
 
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>

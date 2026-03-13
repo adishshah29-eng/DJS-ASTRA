@@ -18,7 +18,7 @@ function AnimatedRoutes() {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+        <Route path="/" element={<Home />} />
         <Route path="/bots" element={<PageTransition><Bots /></PageTransition>} />
         <Route path="/bots/:id" element={<PageTransition><BotDetail /></PageTransition>} />
         <Route path="/team" element={<PageTransition><Team /></PageTransition>} />
@@ -29,18 +29,33 @@ function AnimatedRoutes() {
   );
 }
 
-function App() {
+function AppContent() {
+  const location = useLocation();
+  const isHome = location.pathname === '/';
+
   return (
-    <Router>
+    <>
       <CustomCursor />
       <div className="app-container">
         <Navbar />
-        <main style={{ marginTop: 'var(--nav-height)' }}>
+        <main style={{ marginTop: isHome ? '0' : 'var(--nav-height)' }}>
           <AnimatedRoutes />
         </main>
-        <FooterCTA />
-        <Footer />
+        {!isHome && (
+          <>
+            <FooterCTA />
+            <Footer />
+          </>
+        )}
       </div>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }

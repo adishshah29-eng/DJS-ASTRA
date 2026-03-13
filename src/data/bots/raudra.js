@@ -1,5 +1,9 @@
 export const raudra = {
-    id: 'RAUDRA', name: 'RAUDRA', weight: '15 KG ROBO WARS', weapon: 'DRUM SPINNER', record: 'W: 1 / L: 0', status: 'RETIRED', active: false, image: "/images/bot-nemesis.jpg", modelUrl: "/models/Raudra3DModel.glb",
+    id: 'RAUDRA', name: 'RAUDRA', weight: '15 KG ROBO WARS', weapon: 'DRUM SPINNER', record: 'W: 1 / L: 0', wins: 1, losses: 0, status: 'RETIRED', active: false, image: "/images/bot-nemesis.jpg", modelUrl: "/models/Raudra3DModel.glb",
+    tagline: "High-speed drum spinner with maximum kinetic damage.",
+    weaponType: "KINETIC DESTROYER",
+    armor: "ALUMINIUM 6061",
+    drive: "Brushless",
     details: {
         model: "MK-I",
         description: "Raudra incorporates a high-speed drum spinner and advanced chassis for maximum kinetic damage.",
