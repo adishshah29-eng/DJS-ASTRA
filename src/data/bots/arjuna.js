@@ -1,5 +1,7 @@
 export const arjuna = {
-    id: 'ARJUNA', name: 'ARJUNA', weight: '15 KG ROBO WARS', weapon: 'VERTICAL SPINNER', record: 'W: 0 / L: 2', status: 'COMBAT READY', active: true, image: "/images/ARJUNA_HERO.png",
+    id: 'ARJUNA', name: 'ARJUNA', weight: '15 KG ROBO WARS', weapon: 'VERTICAL SPINNER', record: 'W: 0 / L: 2', status: 'COMBAT READY', active: true, image: "/images/ARJUNA_HERO.png", modelUrl: "/models/ARJUNA3DModel.glb",
+    rotation: [0, 0, Math.PI / 2], scale: 1.0,
+    tagline: "The flagship heavyweight competitor. Engineered for domination.",
     details: {
         model: "MK-IV",
         description: "The flagship heavyweight competitor. Engineered for maximum kinetic energy transfer and structural resilience in the arena.",

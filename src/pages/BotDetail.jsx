@@ -34,7 +34,11 @@ export default function BotDetail() {
             {/* Hero: Full-width 3D Model Viewer */}
             <div className="reveal" style={{ width: '100%', height: '70vh', position: 'relative', borderBottom: '1px solid var(--border-subtle)', background: 'var(--bg-void)' }}>
                 {bot.modelUrl ? (
-                    <ModelViewer modelUrl={bot.modelUrl} />
+                    <ModelViewer
+                        modelUrl={bot.modelUrl}
+                        rotation={bot.rotation}
+                        scale={bot.scale}
+                    />
                 ) : (
                     <div style={{ position: 'absolute', inset: 0, background: `var(--bg-void) url(${bot.image}) center/contain no-repeat` }}>
                         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, var(--bg-void) 0%, transparent 100%)', opacity: 0.8 }} />

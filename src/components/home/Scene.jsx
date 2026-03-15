@@ -5,9 +5,15 @@ import * as THREE from 'three';
 
 const FALLBACK_MODEL = '/models/Raudra3DModel.glb';
 
-function BotModel({ url, index, totalBots, totalPages }) {
-  const { scene } = useGLTF(url || FALLBACK_MODEL);
-  const clonedScene = useMemo(() => scene.clone(), [scene]);
+function BotModel({ bot, index, totalBots, totalPages }) {
+  const { modelUrl, rotation: customRotation, scale: customScale } = bot;
+  const { scene } = useGLTF(modelUrl || FALLBACK_MODEL);
+  const clonedScene = useMemo(() => {
+    const s = scene.clone();
+    if (customRotation) s.rotation.set(...customRotation);
+    if (customScale) s.scale.setScalar(customScale);
+    return s;
+  }, [scene, customRotation, customScale]);
   const ref = useRef();
   const ringRef = useRef();
   const scroll = useScroll();
@@ -136,7 +142,7 @@ export default function Scene({ bots, totalPages }) {
       {bots.map((bot, i) => (
         <BotModel
           key={bot.id || i}
-          url={bot.modelUrl}
+          bot={bot}
           index={i}
           totalBots={bots.length}
           totalPages={totalPages}
