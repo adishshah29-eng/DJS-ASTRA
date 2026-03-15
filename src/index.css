@@ -314,7 +314,7 @@ section {
   }
 }
 
-* { cursor: none; }
+
 body { background: var(--bg-void); }
 
 /* Hide the ThreeJS ScrollControls right scrollbar */

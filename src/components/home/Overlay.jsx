@@ -271,23 +271,22 @@ function AboutAndFooterPage({ totalBots, hero }) {
       background: 'var(--bg-void)',
     }}>
       {/* 4 — Brief Intro (Original Home Section) */}
-      <section className="container" style={{ display: 'flex', flexWrap: 'wrap', gap: '64px', alignItems: 'center', padding: '120px 48px' }}>
+      <section className="container" style={{ display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'center', padding: '80px 48px' }}>
         <div style={{ flex: '1 1 400px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-          <div className="text-label" style={{ color: 'var(--accent-gold)', marginBottom: '32px' }}>// ABOUT THE TEAM</div>
-          <h2 className="text-h2" style={{ marginBottom: '24px', whiteSpace: 'pre-line', fontSize: '36px', color: 'var(--text-primary)' }}>{hero.aboutTitle}</h2>
+          <div className="text-label" style={{ color: 'var(--accent-gold)', marginBottom: '24px' }}>// ABOUT THE TEAM</div>
+          <h2 className="text-h2" style={{ marginBottom: '16px', whiteSpace: 'pre-line', fontSize: '36px', color: 'var(--text-primary)' }}>{hero.aboutTitle}</h2>
           <p className="text-body" style={{ color: 'var(--text-muted)' }}>
             {hero.aboutText}
           </p>
         </div>
-        <div style={{ flex: '1 1 500px' }}>
-          <div style={{ width: '60%', aspectRatio: '1', border: '1px solid var(--border-subtle)', background: 'var(--bg-raised)', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+        <div style={{ flex: '1 1 400px' }}>
+          <div style={{ width: '50%', aspectRatio: '1', border: '1px solid var(--border-subtle)', background: 'var(--bg-raised)', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
             <img src="/images/Founder.png" alt="Founder" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
         </div>
       </section>
 
       {/* Global Application Footer */}
-      <FooterCTA />
       <Footer />
     </div>
   );

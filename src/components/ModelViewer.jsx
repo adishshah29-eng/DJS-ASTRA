@@ -35,7 +35,14 @@ export default function ModelViewer({ modelUrl }) {
                         <Model url={modelUrl} />
                     </Stage>
                 </Suspense>
-                <OrbitControls autoRotate autoRotateSpeed={2} enableZoom={true} makeDefault />
+                <OrbitControls 
+                    autoRotate 
+                    autoRotateSpeed={2} 
+                    enableZoom={false} 
+                    enablePan={false}
+                    makeDefault 
+                    preventScroll={false}
+                />
                 <Environment preset="warehouse" />
             </Canvas>
         </div>

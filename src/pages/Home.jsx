@@ -8,7 +8,7 @@ import { SITE_CONTENT } from '../data/content';
 
 export default function Home() {
   const { hero, bots } = SITE_CONTENT;
-  const TOTAL_PAGES = bots.list.length + 3;
+  const TOTAL_PAGES = bots.list.length + 6;
 
   return (
     <div style={{
