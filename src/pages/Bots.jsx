@@ -39,7 +39,14 @@ export default function Bots() {
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 'var(--grid-gap)' }}>
                     {filteredBots.map((bot, i) => (
                         <div key={i} className="card reveal" style={{ '--i': i }}>
-                            <div className="card-img-container" style={{ background: `var(--bg-raised) url(${bot.image}) center/cover` }}></div>
+                            <div className="card-img-container" style={{ background: 'var(--bg-raised)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                <img 
+                                    src={bot.image} 
+                                    alt={bot.name} 
+                                    className="card-img" 
+                                    style={{ width: '100%', height: '100%', objectFit: 'contain' }} 
+                                />
+                            </div>
                             <h3 className="font-display" style={{ fontSize: '24px', color: 'var(--accent-gold)', marginBottom: '16px' }}>{bot.name}</h3>
                             <div className="badge" style={{ marginBottom: '16px', borderColor: bot.active ? 'var(--accent-red)' : 'var(--border-subtle)', color: bot.active ? 'var(--accent-red)' : 'var(--text-muted)' }}>
                                 {bot.weight}
