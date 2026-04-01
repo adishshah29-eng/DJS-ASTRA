@@ -2,7 +2,7 @@
 
 export default function Footer() {
     return (
-        <footer className="reveal" style={{
+        <footer style={{
             borderTop: '1px solid var(--border-subtle)',
             background: 'var(--bg-surface)',
             padding: '80px 24px 40px 24px'
